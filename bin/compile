@@ -34,4 +34,4 @@ while read url; do
   if [ -n "$url" ]; then
     read_url $url
   fi
-done < .binurls
+done < $buildDir/.binurls
