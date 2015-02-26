@@ -1,0 +1,37 @@
+#!/bin/bash
+
+buildDir=$1;
+cacheDir=$2;
+binDir=$buildDir/bin
+
+if [ ! -s $1/.binurls ]; then
+  echo "-----> .binurls is empty."
+  exit 0
+fi
+
+cd $cacheDir
+
+read_url() {
+  url=$1;
+  echo "-----> reading $url"
+
+  file=$(basename $url)
+  file=${file%%.*}
+
+  if [ -f $cacheDir/$file ]
+    echo "-----> $file cached"
+  else
+    echo "-----> downloading $url"
+    curl -sL $url | tar xz
+  fi
+
+  echo "-----> copying to $binDir"
+  mkdir -p $binDir
+  cp $file $binDir
+}
+
+while read url; do
+  if [ -n "$url" ]; then
+    read_url($url)
+  fi
+done < .binurls

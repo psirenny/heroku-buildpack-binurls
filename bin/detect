@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "binurls"
+
+if [ -f $1/.binurls ]; then
+  echo "-----> .binurls detected."
+  exit 0
+else
+  echo "-----> .binurls not detected."
+  exit 1
+fi
