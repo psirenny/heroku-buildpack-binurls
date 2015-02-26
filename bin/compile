@@ -20,7 +20,7 @@ read_url() {
   file=${file%%.*}
 
   if [ -f $cacheDir/$file ]; then
-    echo "-----> $file is cached"
+    echo "-----> Found $file in cache"
   else
     echo "-----> Downloading \"$url\""
     curl -sL $url | tar xz
