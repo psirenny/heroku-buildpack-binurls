@@ -1,8 +1,8 @@
 #!/bin/bash
 
-binDir=/app/bin
 buildDir=$1;
 cacheDir=$2;
+binDir=$buildDir/bin
 
 if [ ! -s $1/.binurls ]; then
   echo "-----> Skipping empty .binurls file"
@@ -26,7 +26,7 @@ read_url() {
     curl -sL $url | tar xz
   fi
 
-  echo -e "-----> Copying $file to $binDir\n"
+  echo "-----> Copying $file to $binDir"
   cp $file $binDir
 }
 
