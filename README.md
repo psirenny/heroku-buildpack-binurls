@@ -22,9 +22,6 @@ Usage
 Binaries
 ========
 
-Binaries are placed in the **/app/bin** directory.
+Binaries are cached and extracted to the **/app/bin** directory.
+They should be gzipped tarbells containing a single binary.
 
-Urls
-====
-
-Binary urls should be gzipped tarballs. They are cached between installs.
