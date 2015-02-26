@@ -5,7 +5,7 @@ buildDir=$1;
 cacheDir=$2;
 
 if [ ! -s $1/.binurls ]; then
-  echo "-----> .binurls file is empty."
+  echo "-----> Empty .binurls file"
   exit 0
 fi
 
@@ -14,19 +14,19 @@ cd $cacheDir
 
 read_url() {
   url=$1;
-  echo "-----> reading \"$url\""
+  echo "-----> Reading \"$url\""
 
   file=$(basename $url)
   file=${file%%.*}
 
   if [ -f $cacheDir/$file ]; then
-    echo "-----> $file cached"
+    echo "-----> $file is cached"
   else
-    echo "-----> downloading \"$url\""
+    echo "-----> Downloading \"$url\""
     curl -sL $url | tar xz
   fi
 
-  echo "-----> copying to $binDir"
+  echo "-----> Copying $file to $binDir\n"
   cp $file $binDir
 }
 

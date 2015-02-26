@@ -3,9 +3,9 @@
 echo "binurls"
 
 if [ -f $1/.binurls ]; then
-  echo "-----> .binurls file detected."
+  echo "-----> Detected .binurls file"
   exit 0
 else
-  echo "-----> .binurls file not detected."
+  echo "-----> Did not detect .binurls file"
   exit 1
 fi
