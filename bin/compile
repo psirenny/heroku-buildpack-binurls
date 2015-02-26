@@ -18,7 +18,7 @@ read_url() {
   file=$(basename $url)
   file=${file%%.*}
 
-  if [ -f $cacheDir/$file ]
+  if [ -f $cacheDir/$file ]; then
     echo "-----> $file cached"
   else
     echo "-----> downloading $url"
