@@ -1,19 +1,20 @@
 #!/bin/bash
 
+binDir=/app/bin
 buildDir=$1;
 cacheDir=$2;
-binDir=$buildDir/bin
 
 if [ ! -s $1/.binurls ]; then
-  echo "-----> .binurls is empty."
+  echo "-----> .binurls file is empty."
   exit 0
 fi
 
+mkdir -p $binDir
 cd $cacheDir
 
 read_url() {
   url=$1;
-  echo "-----> reading $url"
+  echo "-----> reading \"$url\""
 
   file=$(basename $url)
   file=${file%%.*}
@@ -21,12 +22,11 @@ read_url() {
   if [ -f $cacheDir/$file ]; then
     echo "-----> $file cached"
   else
-    echo "-----> downloading $url"
+    echo "-----> downloading \"$url\""
     curl -sL $url | tar xz
   fi
 
   echo "-----> copying to $binDir"
-  mkdir -p $binDir
   cp $file $binDir
 }
 
