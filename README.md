@@ -15,8 +15,8 @@ Usage
 
 /app/.binurls:
 
-    https://s3.amazonaws.com/blrrt/bin/ffmpeg.tar.gz
-    https://s3.amazonaws.com/blrrt/bin/ffprobe.tar.gz
+    https://s3.amazonaws.com/foo/bar/baz.tar.gz
+    https://s3.amazonaws.com/foo/bar/qux.tar.gz
     ...
 
 Binaries

@@ -5,7 +5,7 @@ buildDir=$1;
 cacheDir=$2;
 
 if [ ! -s $1/.binurls ]; then
-  echo "-----> Empty .binurls file"
+  echo "-----> Skipping empty .binurls file"
   exit 0
 fi
 
